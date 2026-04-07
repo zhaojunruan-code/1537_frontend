@@ -14,6 +14,18 @@
         <text class="empty-text">记录不存在或已被删除</text>
       </view>
 
+      <!-- 导出按钮（悬浮） -->
+      <view v-if="record" class="export-bar">
+        <button class="export-btn" @click="handleExport('pdf')">
+          <wd-icon name="file" size="32" color="#ffffff" />
+          <text class="export-btn-text">导出PDF</text>
+        </button>
+        <button class="export-btn export-btn-word" @click="handleExport('docx')">
+          <wd-icon name="file" size="32" color="#ffffff" />
+          <text class="export-btn-text">导出Word</text>
+        </button>
+      </view>
+
       <!-- 帮写记录 -->
       <template v-else-if="record.type === 'write'">
         <view class="write-card">
@@ -124,6 +136,14 @@ onLoad((options) => {
 
 const goBack = () => {
   uni.navigateBack()
+}
+
+const handleExport = (format) => {
+  uni.showToast({ title: `导出${format.toUpperCase()}功能需要后端支持`, icon: 'none' })
+  // TODO: 调用后端导出接口
+  // POST /api/export/create { recordId, format }
+  // 轮询 GET /api/export/status/{exportId}
+  // 成功后打开下载链接
 }
 </script>
 
@@ -416,5 +436,34 @@ const goBack = () => {
   color: #333333;
   line-height: 1.8;
   white-space: pre-wrap;
+}
+
+/* 导出按钮 */
+.export-bar {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.export-btn {
+  flex: 1;
+  height: 80rpx;
+  background: #07C160;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  border: none;
+}
+
+.export-btn-word {
+  background: #3b82f6;
+}
+
+.export-btn-text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #ffffff;
 }
 </style>
