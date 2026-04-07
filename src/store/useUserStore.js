@@ -2,12 +2,12 @@ import { defineStore } from "pinia"
 
 export const useUserStore = defineStore("user", {
   state: () => ({
-    // TODO 根据自己项目拓展
     userInfo: {
       nickname: "",
       avatar: "",
       openid: "",
       role: "patient",
+      isVip: false,
     },
     token: null,
   }),
@@ -15,33 +15,32 @@ export const useUserStore = defineStore("user", {
   getters: {
     isLogin: (state) => !!state.token,
     getToken: (state) => state.token,
+    userName: (state) => state.userInfo.nickname || '同学',
+    isVip: (state) => !!state.userInfo.isVip,
     userRole: (state) => state.userInfo.role || "patient",
     isDoctor: (state) => state.userInfo.role === "doctor",
     isPatient: (state) => state.userInfo.role === "patient",
   },
   actions: {
-    // 登录
+    mockLogin(name = '微信用户') {
+      this.userInfo.nickname = name
+      this.userInfo.isVip = false
+      this.token = 'mock-token-' + Date.now()
+    },
     async onLogin(fromData) {
       //TODO 这里换成你的项目的登录接口
-      //const r = await onUserLogin(fromData)
-
-      //if (r.code === 200) {
-      //  this.setToken(r.data.token)
-      //
-      //  await this.setUserInfo()
-      //} else {
-      //  useToast(r.msg || "登录失败")
-      //}
     },
     setToken(value) {
       this.token = value
     },
-    // 刷新用户信息
     async setUserInfo() {
-      const res = await onGetUserInfo()
-      if (res.code == 200) {
-        this.userInfo = res.data
-      }
+      // const res = await onGetUserInfo()
+      // if (res.code == 200) {
+      //   this.userInfo = res.data
+      // }
+    },
+    setVip(value) {
+      this.userInfo.isVip = value
     },
     clearUserInfo() {
       this.userInfo = {
@@ -49,6 +48,7 @@ export const useUserStore = defineStore("user", {
         avatar: "",
         openid: "",
         role: "patient",
+        isVip: false,
       }
       this.token = null;
     },
