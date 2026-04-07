@@ -1,0 +1,61 @@
+{
+    "globalStyle": {
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#f8f8f8",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#FFFFFF"
+    },
+    "easycom": {
+        "autoscan": true,
+        "custom": {
+            "^wd-(.*)": "wot-design-uni/components/wd-$1/wd-$1.vue",
+            "^(?!z-paging-refresh|z-paging-load-more)z-paging(.*)": "z-paging/components/z-paging$1/z-paging$1.vue"
+        }
+    },
+    "pages": [
+        {
+            "path": "pages/index/index",
+            "name": "首页"
+        },
+      // #ifdef APP-ANDROID
+      {
+        "name": "权限弹窗",
+        "path": "pages/auth/index",
+        "style": {
+          "navigationStyle": "custom",
+          "backgroundColor": "transparent",
+          "app-plus": {
+            "animationType": "fade-in",
+            "background": "transparent",
+            "backgroundColor": "transparent",
+            "webviewBGTransparent": true,
+            "mask": "none",
+            "popGesture": "none",
+            "bounce": "none"
+          }
+        }
+      },
+      // #endif
+        {
+            "path": "pages/empty/index",
+            "name": "空页面"
+        }
+    ],
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#333333",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/empty/index",
+                "text": "空页面"
+            }
+        ]
+    },
+    "subPackages": []
+}

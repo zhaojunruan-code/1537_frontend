@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "dariofuzinato.vue-peek",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "antfu.unocss",
+    "antfu.iconify",
+    "evils.uniapp-vscode",
+    "uni-helper.uni-helper-vscode",
+    "uni-helper.uni-app-schemas-vscode",
+    "uni-helper.uni-highlight-vscode",
+    "uni-helper.uni-ui-snippets-vscode",
+    "uni-helper.uni-app-snippets-vscode",
+    "mrmlnc.vscode-json5",
+    "lihuiwang.vue-alias-skip",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "MS-CEINTL.vscode-language-pack-zh-hans",
+    "jingwang37.element-plus-snippets",
+    "usernamehw.errorlens",
+    "christian-kohler.path-intellisense"
+  ]
+}

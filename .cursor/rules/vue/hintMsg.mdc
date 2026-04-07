@@ -1,0 +1,27 @@
+---
+description: 提示规范
+globs: 
+alwaysApply: false
+---
+
+## 消息提示规范
+使用全局导入的 useToast 函数显示消息提示，无需单独引入：
+
+```js
+// 普通提示（默认icon为none）
+useToast(msg)
+
+// 成功提示
+useToast(msg, 'success')
+
+// 错误提示示例
+useToast(res.msg)
+useToast(req.data?.msg || $t("common.networkError"))
+
+// 不要使用以下方式
+// import { useToast } from '@/hooks/useToast'   // ❌ 不需要导入@/hooks/useToast已经全局导入
+// import { useToast } from "wot-design-uni"   // ❌ 不需要导入wot-design-uni组件里面的提示
+// const toast = useToast()  // ❌ 不需要创建实例
+// toast.warning(msg)        // ❌ 错误用法
+// toast.success(msg)        // ❌ 错误用法
+```

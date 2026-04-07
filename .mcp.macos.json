@@ -1,0 +1,86 @@
+{
+  "mcpServers": {
+    "mygo_hps": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mastergo/magic-mcp",
+        "--token=mg_c7ee3e77683846a18f3573663338732d",
+        "--url=https://mastergo.com",
+        "--verbose"
+      ],
+      "env": {
+        "NPM_CONFIG_REGISTRY": "https://registry.npmjs.org/"
+      }
+    },
+    "mygo_wlx": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mastergo/magic-mcp",
+        "--token=mg_672ace8ff4e045b487e8f40f24e71fd8",
+        "--url=https://mastergo.com",
+        "--verbose"
+      ],
+      "env": {
+        "NPM_CONFIG_REGISTRY": "https://registry.npmjs.org/"
+      }
+    },
+    "mygo_hy": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mastergo/magic-mcp",
+        "--token=mg_0384c07e4b9348dd89080f0277a64306",
+        "--url=https://mastergo.com",
+        "--verbose"
+      ],
+      "env": {
+        "NPM_CONFIG_REGISTRY": "https://registry.npmjs.org/"
+      }
+    },
+    "mygo_hyl": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mastergo/magic-mcp",
+        "--token=mg_95237aa3ef9343a6b297aa1d3de6bb48",
+        "--url=https://mastergo.com",
+        "--verbose"
+      ],
+      "env": {
+        "NPM_CONFIG_REGISTRY": "https://registry.npmjs.org/"
+      }
+    },
+    "mygo_lj": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mastergo/magic-mcp",
+        "--token=mg_2b2d42a774064a38b5773d8a2c6a7b69",
+        "--url=https://mastergo.com",
+        "--verbose"
+      ],
+      "env": {
+        "NPM_CONFIG_REGISTRY": "https://registry.npmjs.org/"
+      }
+    },
+    "mygo_ljj": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mastergo/magic-mcp",
+        "--token=mg_43fbd51be1184eb5956d26982b808b88",
+        "--url=https://mastergo.com",
+        "--verbose"
+      ],
+      "env": {
+        "NPM_CONFIG_REGISTRY": "https://registry.npmjs.org/"
+      }
+    },
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
