@@ -17,25 +17,53 @@
             "path": "pages/index/index",
             "name": "首页"
         },
-      // #ifdef APP-ANDROID
-      {
-        "name": "权限弹窗",
-        "path": "pages/auth/index",
-        "style": {
-          "navigationStyle": "custom",
-          "backgroundColor": "transparent",
-          "app-plus": {
-            "animationType": "fade-in",
-            "background": "transparent",
-            "backgroundColor": "transparent",
-            "webviewBGTransparent": true,
-            "mask": "none",
-            "popGesture": "none",
-            "bounce": "none"
-          }
-        }
-      },
-      // #endif
+        {
+            "path": "pages/write/index",
+            "name": "写作文"
+        },
+        {
+            "path": "pages/recharge/index",
+            "name": "会员"
+        },
+        {
+            "path": "pages/profile/index",
+            "name": "我的"
+        },
+        {
+            "path": "pages/login/index",
+            "name": "登录"
+        },
+        {
+            "path": "pages/grade/index",
+            "name": "AI批改"
+        },
+        {
+            "path": "pages/history/index",
+            "name": "历史记录"
+        },
+        {
+            "path": "pages/record-detail/index",
+            "name": "记录详情"
+        },
+        // #ifdef APP-ANDROID
+        {
+            "name": "权限弹窗",
+            "path": "pages/auth/index",
+            "style": {
+                "navigationStyle": "custom",
+                "backgroundColor": "transparent",
+                "app-plus": {
+                    "animationType": "fade-in",
+                    "background": "transparent",
+                    "backgroundColor": "transparent",
+                    "webviewBGTransparent": true,
+                    "mask": "none",
+                    "popGesture": "none",
+                    "bounce": "none"
+                }
+            }
+        },
+        // #endif
         {
             "path": "pages/empty/index",
             "name": "空页面"
@@ -43,7 +71,7 @@
     ],
     "tabBar": {
         "color": "#999999",
-        "selectedColor": "#333333",
+        "selectedColor": "#07C160",
         "backgroundColor": "#ffffff",
         "borderStyle": "black",
         "list": [
@@ -52,8 +80,16 @@
                 "text": "首页"
             },
             {
-                "pagePath": "pages/empty/index",
-                "text": "空页面"
+                "pagePath": "pages/write/index",
+                "text": "写作文"
+            },
+            {
+                "pagePath": "pages/recharge/index",
+                "text": "会员"
+            },
+            {
+                "pagePath": "pages/profile/index",
+                "text": "我的"
             }
         ]
     },

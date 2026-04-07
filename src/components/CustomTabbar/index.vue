@@ -10,18 +10,14 @@
       class="tabbar-item"
       v-for="(item, index) in tabbarList"
       :key="index"
-      :class="[item.centerItem ? 'center-item' : '']"
       :style="{ width: `calc(100%/${tabbarList.length})` }"
       @click="useTabbar.handleChangeTabbar(item)"
     >
-      <view class="item-top">
-        <image
-          :src="current == item.id ? item.selectIcon : item.icon"
-          mode="widthFix"
-        />
+      <view class="item-icon">
+        <wd-icon :name="item.icon" :size="44" :color="current == item.id ? '#07C160' : '#999999'" />
       </view>
       <view
-        class="item-bottom"
+        class="item-label"
         :class="[current == item.id ? 'item-active' : '']"
       >
         <text>{{ item.text }}</text>
@@ -31,11 +27,6 @@
 </template>
 <script setup>
 import { useTabbarStore } from "@/store/useTabbarStore"
-import { useUserStore } from "@/store/useUserStore"
-
-defineProps({
-  fixed: Boolean,
-})
 
 defineOptions({ name: "CustomTabbar" })
 
@@ -44,25 +35,29 @@ const useTabbar = useTabbarStore()
 const tabbarList = [
   {
     id: 0,
-    path: "/pages/home/index",
-    icon: "/static/tabbar/home.png",
-    selectIcon: "/static/tabbar/home_a.png",
+    path: "/pages/index/index",
+    icon: "home",
     text: "首页",
     centerItem: false,
   },
   {
     id: 1,
-    path: "/pages/message/index",
-    icon: "/static/tabbar/msg.png",
-    selectIcon: "/static/tabbar/msg_a.png",
-    text: "消息",
+    path: "/pages/write/index",
+    icon: "edit",
+    text: "写作文",
     centerItem: false,
   },
   {
     id: 2,
-    path: "/pages/mine/index",
-    icon: "/static/tabbar/my.png",
-    selectIcon: "/static/tabbar/my_a.png",
+    path: "/pages/recharge/index",
+    icon: "credit-card",
+    text: "会员",
+    centerItem: false,
+  },
+  {
+    id: 3,
+    path: "/pages/profile/index",
+    icon: "user",
     text: "我的",
     centerItem: false,
   },
@@ -77,10 +72,10 @@ const updateCurrentTab = () => {
 
   const normalizedRoute = route.startsWith("/") ? route : `/${route}`
 
-  const tabbarItem = tabbarList.value.find((i) => i.path === normalizedRoute)
+  const found = tabbarList.find((i) => i.path === normalizedRoute)
 
-  if (tabbarItem) {
-    useTabbar.handleChangeTabbar(tabbarItem)
+  if (found) {
+    useTabbar.tabbarIndex = found.id
   }
 }
 
@@ -102,77 +97,48 @@ onShow(() => {
 const current = computed(() => useTabbar.tabbarIndex)
 </script>
 <style scoped lang="scss">
-view {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 .tabbar-container {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   min-height: 110rpx;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -2rpx 10rpx 0 rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   padding: 5rpx 0;
-  color: #000000;
   z-index: 1000;
   background-color: #ffffff;
   box-sizing: border-box;
+  border-top: 1rpx solid #f0f0f0;
 }
 
-.tabbar-container .tabbar-item {
-  width: 20%;
-  height: 100rpx;
+.tabbar-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.tabbar-container .item-active {
-  color: #27A046;
-}
-
-.tabbar-container .center-item {
-  display: block;
-  position: relative;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-.tabbar-container .tabbar-item .item-top {
-  width: 80rpx;
-  height: 80rpx;
-  padding: 10rpx;
+.item-icon {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.tabbar-container .center-item .item-top {
-  flex-shrink: 0;
-  width: 100rpx;
-  height: 100rpx;
-  position: absolute;
-  top: -50rpx;
-  left: calc(50% - 50rpx);
-  border-radius: 50%;
-  background-color: #ffffff;
+.item-label {
+  font-size: 20rpx;
+  color: #999999;
+  margin-top: 4rpx;
 }
 
-.tabbar-container .tabbar-item .item-top image {
-  width: 100%;
-  height: 100%;
-}
-
-.tabbar-container .tabbar-item .item-bottom {
-  font-size: 28rpx;
-  width: 100%;
-}
-
-.tabbar-container .center-item .item-bottom {
-  position: absolute;
-  bottom: 5rpx;
+.item-active {
+  color: #07C160;
 }
 </style>

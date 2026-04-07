@@ -11,13 +11,10 @@ const ignoreList = [
     '/pages/login/index'
 ]
 
-// 不需要登录的页面
 const whitelist = [
   ...ignoreList,
-    // 在这里添加不需要登录的页面地址， 类似 '/pages/demo/index'
 ]
 
-// 黑名单登录拦截器 - （适用于大部分页面不需要登录，少部分页面需要登录）
 const navigateToInterceptor = {
   invoke({url}) {
     const path = url.split('?')[0];
